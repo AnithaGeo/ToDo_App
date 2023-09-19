@@ -10,10 +10,13 @@
 <body>
     <div class="wrapper">
         <div class="box a">
-            <img src="{{url('images/todo.jpg')}}" alt="">
+            <img src="{{url('images/todo.jpg')}}" alt="todoimg">
         </div>
         <div class="box b">
-            <h1>TaskSwift</h1><br>
+            <p>
+                TaskSwift
+                <img src="{{url('images/logo.png')}}" alt="logo">
+            </p>
             <h4>Stay on Track</h4>
         </div>
         <div class="box c">
