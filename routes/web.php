@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('pages.login');
 });
 
 Route::get('register', function () {
-    return view('register');
+    return view('pages.register');
 })->name('register');
 
 Route::get('addtask', function () {
-    return view('addtask');
+    return view('pages.addtask');
 })->name('addtask');
+
+Route::get('viewtask', function () {
+    return view('pages.viewtask');
+})->name('viewtask');

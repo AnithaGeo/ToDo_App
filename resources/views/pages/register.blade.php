@@ -1,4 +1,4 @@
-@extends('userlayout')
+@extends('layouts.userlayout')
 
 @section('title','Register')
 

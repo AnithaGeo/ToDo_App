@@ -18,15 +18,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Features</a>
-                    <a class="nav-item nav-link" href="#">Pricing</a>
-                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
-                    <a class="nav-item nav-link dropdown dropdown-toggle" href="#" id="navbarDropdownMenulink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-item nav-link active" href="{{'pages.addtask'}}">Add Task <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{'pages.viewtask'}}">View Task</a>
+                    <a class="nav-item nav-link dropdown show dropdown-toggle" href="#" id="navbarDropdownMenulink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="lni lni-user"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenulink">
-                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="{{'profile'}}">Dashboard</a>
                         <a class="dropdown-item" href="#">Logout</a>
                     </div>
                 </div>
@@ -34,6 +32,10 @@
           </nav>
     </div>
 
+    @yield('content')
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
