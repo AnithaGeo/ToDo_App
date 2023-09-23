@@ -18,8 +18,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="{{'pages.addtask'}}">Add Task <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="{{'pages.viewtask'}}">View Task</a>
+                    <a class="nav-item nav-link active" href="{{'addtask'}}">Add Task <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{'index'}}">View Task</a>
                     <a class="nav-item nav-link dropdown show dropdown-toggle" href="#" id="navbarDropdownMenulink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="lni lni-user"></i>
                     </a>
@@ -37,6 +37,23 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
 
+        const toggleButton = document.getElementById('toggleButton');
+      
+        toggleButton.addEventListener('click', function () {
+            toggleButton.classList.toggle('btn-primary'); 
+            toggleButton.classList.toggle('btn-success');
+          const isPressed = toggleButton.getAttribute('aria-pressed') === 'true';
+      
+          if (isPressed) {
+            toggleButton.innerText = 'Mark As Complete';
+            toggleButton.setAttribute('aria-pressed', 'false');
+          } else {
+            toggleButton.innerText = 'Completed';
+            toggleButton.setAttribute('aria-pressed', 'true');
+          }
+        });
+      </script>
 </body>
 </html>

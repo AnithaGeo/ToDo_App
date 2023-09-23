@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,31 @@ Route::get('/', function () {
     return view('pages.login');
 });
 
-Route::get('register', function () {
+Route::get('/pages/register', function () {
     return view('pages.register');
-})->name('register');
+});
 
-Route::get('addtask', function () {
-    return view('pages.addtask');
-})->name('addtask');
+Route::post('/pages',[TodoController::class,'store']);
 
-Route::get('viewtask', function () {
-    return view('pages.viewtask');
-})->name('viewtask');
+// Route::get('/pages/addtask', function () {
+//     return view('pages.addtask');
+// });
+
+Route::get('/pages/index', [TodoController::class, 'index']);
+Route::get('/pages/addtask', [TodoController::class, 'add']);
+Route::get('edittask', [TodoController::class, 'edit'])->name('edittask');
+Route::post('updatetask', [TodoController::class, 'update'])->name('updatetask');
+Route::get('deletetask', [TodoController::class, 'delete'])->name('deletetask');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

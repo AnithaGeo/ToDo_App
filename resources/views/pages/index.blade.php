@@ -14,5 +14,6 @@
         <x-task-card />
     </div>
 </div>
+
 @endsection
 
