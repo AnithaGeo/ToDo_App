@@ -17,10 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->string('status')->default('pending');
-            $table->foreign('id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+            $table->foreignId("user_id")->constrained(table:"users")->cascadeOnDelete();
         });
     }
 

@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
-@section('title','AddTask')
+@section('title','EditTask')
     
 @section('content')
     <div class="container-md text-center mx-auto my-5 p-3 border" style="width: 650px">
-        <div class="h4">Add New Task</div>
+        <div class="h4">Edit Task</div>
         <form action="/pages" method="POST" class="p-4">
             @csrf
             <input type="text" class="form-control my-4" name="title" placeholder="Todo Name">

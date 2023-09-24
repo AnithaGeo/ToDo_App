@@ -29,11 +29,10 @@ Route::post('/pages',[TodoController::class,'store']);
 //     return view('pages.addtask');
 // });
 
-Route::get('/pages/index', [TodoController::class, 'index']);
-Route::get('/pages/addtask', [TodoController::class, 'add']);
-Route::get('edittask', [TodoController::class, 'edit'])->name('edittask');
-Route::post('updatetask', [TodoController::class, 'update'])->name('updatetask');
-Route::get('deletetask', [TodoController::class, 'delete'])->name('deletetask');
+Route::get('/pages/index', [TodoController::class, 'index'])->name('pages.index');
+Route::get('/pages/edittask', [TodoController::class, 'editt'])->name('pages.edittask');
+Route::get('/pages/addtask', [TodoController::class, 'add'])->name('pages.addtask');
+Route::get('/pages/profile', [TodoController::class, 'profile'])->name('pages.profile');
 
 
 Route::get('/dashboard', function () {
