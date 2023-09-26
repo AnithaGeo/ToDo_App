@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$task->title}}</h5>
                 <p class="card-text">{{$task->desc}}</p>
-                <a href="pages.edittask" class="btn btn-primary"><i class="lni lni-pencil"></i> Edit</a>
+                <a href="{{route('pages.edittask')}}" class="btn btn-primary"><i class="lni lni-pencil"></i> Edit</a>
                 <button type="button" class="btn btn-primary" id="toggleButton" data-toggle="button" aria-pressed="false" autocomplete="off">
                 Mark As Complete
                 </button>

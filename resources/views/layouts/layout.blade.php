@@ -19,18 +19,18 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                      <a class="nav-link active" href="pages.addtask">Add Task <span class="sr-only">(current)</span></a>
+                      <a class="nav-link active" href="{{route('pages.addtask')}}">Add Task <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="pages.index">View Task</a>
+                      <a class="nav-link" href="{{route('pages.index')}}">View Task</a>
                   </li>
                   <li class="nav-item dropdown show">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenulink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="lni lni-user"></i>
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenulink">
-                          <a class="dropdown-item" href="pages.profile">Dashboard</a>
-                          <a class="dropdown-item" href="pages.login">Logout</a>
+                          <a class="dropdown-item" href="{{route('pages.profile')}}">Dashboard</a>
+                          <a class="dropdown-item" href="{{route('pages.login')}}">Logout</a>
                       </div>
                   </li>
               </ul>

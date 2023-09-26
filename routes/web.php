@@ -17,11 +17,11 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', function () {
     return view('pages.login');
-});
+})->name("pages.login");
 
 Route::get('/pages/register', function () {
     return view('pages.register');
-});
+})->name("pages.register");
 
 Route::post('/pages',[TodoController::class,'store']);
 
@@ -29,20 +29,21 @@ Route::post('/pages',[TodoController::class,'store']);
 //     return view('pages.addtask');
 // });
 
-Route::get('/pages/index', [TodoController::class, 'index'])->name('pages.index');
-Route::get('/pages/edittask', [TodoController::class, 'editt'])->name('pages.edittask');
-Route::get('/pages/addtask', [TodoController::class, 'add'])->name('pages.addtask');
-Route::get('/pages/profile', [TodoController::class, 'profile'])->name('pages.profile');
+Route::get('/pages/index', [TodoController::class, 'index'])->name("pages.index");
+Route::get('/pages/edittask', [TodoController::class, 'editt'])->name("pages.edittask");
+Route::get('/pages/addtask', [TodoController::class, 'add'])->name("pages.addtask");
+Route::get('/pages/profile', [TodoController::class, 'profile'])->name("pages.profile");
+Route::get('/pages/changepswd', [TodoController::class, 'cpswd'])->name("pages.changepswd");
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name("profile.edit");
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name("rofile.update");
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name("profile.destroy");
+// });
 
 require __DIR__.'/auth.php';

@@ -19,6 +19,9 @@ class TodoController extends Controller
     public function add(){
         return view('pages.addtask');
     }
+    public function cpswd(){
+        return view('pages.changepswd');
+    }
     public function editt(){
         return view('pages.edittask');
     }

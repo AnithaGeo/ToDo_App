@@ -9,18 +9,37 @@
     <title>@yield('title','default')</title>
 </head>
 <body>
-    <div class="container-sm text-center m-auto p-3 border" style="background-color: aqua; width: 550px;">
+    <div class="container-sm text-center m-auto p-3 border" style="background-color: aqua; width: 550px">
         <p class="text-center d-inline block" style="font-family: cursive; font-size: 80px;">
             TaskSwift
             <img class="d-inline-block" style="height: 60px;" src="{{url('images/logo.png')}}" alt="logopic">
         </p>
         <p class="h3 mb-5">Stay On Track</p>
         
+        <div>
+            @yield('content')
 
-        @yield('content')
+        </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <script>
+         //Toggle between premiuum
+         const toggleButton = document.getElementById('toggleButton');
+      
+      toggleButton.addEventListener('click', function () {
+          toggleButton.classList.toggle('btn-primary'); 
+          toggleButton.classList.toggle('btn-success');
+        const isPressed = toggleButton.getAttribute('aria-pressed') === 'true';
+    
+        if (isPressed) {
+          toggleButton.innerText = 'Get Premium Account';
+          toggleButton.setAttribute('aria-pressed', 'false');
+        } else {
+          toggleButton.innerText = 'Premium Member';
+          toggleButton.setAttribute('aria-pressed', 'true');
+        }
+      });
+    </script>
 </body>
 </html>
