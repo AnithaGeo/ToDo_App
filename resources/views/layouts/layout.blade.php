@@ -30,7 +30,9 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenulink">
                           <a class="dropdown-item" href="{{route('pages.profile')}}">Dashboard</a>
-                          <a class="dropdown-item" href="{{route('pages.login')}}">Logout</a>
+                          @auth
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        @endauth
                       </div>
                   </li>
               </ul>
@@ -74,11 +76,13 @@
 
         //Toggle between completed
         const toggleButton = document.getElementById('toggleButton');
-      
-        toggleButton.addEventListener('click', function () {
+        
+        toggleButton.addEventListener('click', function (e) {
             toggleButton.classList.toggle('btn-primary'); 
             toggleButton.classList.toggle('btn-success');
-          const isPressed = toggleButton.getAttribute('aria-pressed') === 'true';
+          const isPressed = e.target.getAttribute('aria-pressed') === 'true';
+
+          console.log(e.target.getAttribute('aria-pressed'));
       
           if (isPressed) {
             toggleButton.innerText = 'Mark As Complete';

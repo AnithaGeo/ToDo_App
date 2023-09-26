@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->boolean('notification_status')->default(1);
+            $table->boolean('premium_status')->default(0);
             $table->timestamps();
         });
     }

@@ -15,25 +15,34 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.login');
-})->name("pages.login");
+Route::middleware("guest")->group(function(){
 
-Route::get('/pages/register', function () {
-    return view('pages.register');
-})->name("pages.register");
 
-Route::post('/pages',[TodoController::class,'store']);
+    
+    Route::get('/', function () {
+        return view('pages.login');
+    })->name("pages.login");
 
+    Route::get('/pages/register', function () {
+        return view('pages.register');
+    })->name("pages.register");
+    
+});
+    
 // Route::get('/pages/addtask', function () {
-//     return view('pages.addtask');
-// });
-
-Route::get('/pages/index', [TodoController::class, 'index'])->name("pages.index");
-Route::get('/pages/edittask', [TodoController::class, 'editt'])->name("pages.edittask");
-Route::get('/pages/addtask', [TodoController::class, 'add'])->name("pages.addtask");
-Route::get('/pages/profile', [TodoController::class, 'profile'])->name("pages.profile");
-Route::get('/pages/changepswd', [TodoController::class, 'cpswd'])->name("pages.changepswd");
+    //     return view('pages.addtask');
+    // });
+    
+    Route::middleware(['auth'])->group(function(){
+        Route::get('/pages/index', [TodoController::class, 'index'])->name("pages.index");
+        Route::get('/pages/edittask/{id}', [TodoController::class, 'editt'])->name("pages.edittask");
+        Route::post('/pages/edittask/{id}', [TodoController::class, 'update'])->name("todo.edit");
+        Route::get('/pages/addtask', [TodoController::class, 'add'])->name("pages.addtask");
+        Route::post('/todo/add',[TodoController::class,'store'])->name("todo.add");
+        Route::get('/pages/profile', [TodoController::class, 'profile'])->name("pages.profile");
+        Route::get('/pages/changepswd', [TodoController::class, 'cpswd'])->name("pages.changepswd");
+        Route::delete('/todo/delete/{id}',[TodoController::class,'destroy'])->name("todo.destroy");
+});
 
 
 // Route::get('/dashboard', function () {
